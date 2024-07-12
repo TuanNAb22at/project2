@@ -8,10 +8,10 @@ import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import com.javaweb.customexception.FieldRequiredException;
 import com.javaweb.model.ErrotResponseDTO;
 
 import org.springframework.web.bind.annotation.ExceptionHandler;
-import customexception.FieldRequiredException;
 @ControllerAdvice
 public class ControllerAdvisor extends ResponseEntityExceptionHandler {
 	@ExceptionHandler(ArithmeticException.class)
