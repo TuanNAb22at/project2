@@ -16,13 +16,19 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 	 static final String USER = "root";
 	 static final String PASS = "12345";
 	@Override
-	public ArrayList<BuildingEntity> findAll(String name) {
-		String sql="SELECT * FROM estateadvance.building";
+	public ArrayList<BuildingEntity> findAll(String name,String district) {
+		StringBuilder sql=new StringBuilder("SELECT * FROM building b where 1=1 ");
+		if(name!=null && !name.equals("")) {
+			sql.append("AND b.name like '%" + name +"%' ");
+		}
+		if(district !=null && !district.equals("")) {
+			sql.append("AND b.district like '%" + district +"%' ");
+		}
+		
 		ArrayList<BuildingEntity> arr =new ArrayList<>();
 		try(Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
 				java.sql.Statement stmt=conn.createStatement();
-				ResultSet rs=stmt.executeQuery(sql);
-				
+				ResultSet rs=stmt.executeQuery(sql.toString());
 			){
 			while(rs.next()) {
 				BuildingEntity building =new BuildingEntity();
@@ -40,5 +46,6 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		}
 		return arr;
 	}
+	
 	
 }
