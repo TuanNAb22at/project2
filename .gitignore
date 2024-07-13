@@ -1,0 +1,4 @@
+/spring-boot/*.project
+/spring-boot/*.classpath
+/spring-boot/target
+/spring-boot/*.gitignore
