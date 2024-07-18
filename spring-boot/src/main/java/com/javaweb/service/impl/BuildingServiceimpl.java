@@ -14,8 +14,8 @@ public class BuildingServiceimpl implements BuildingService {
 	@Autowired
 	private BuildingRepository buildingRepository;
 	@Override
-	public ArrayList<BuildingDTO> findAll(String name) {
-		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(name);
+	public ArrayList<BuildingDTO> findAll(String name,String district) {
+		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(name,district);
 		ArrayList<BuildingDTO> result = new ArrayList<>();
 		for(BuildingEntity item:buildingentities) {
 			BuildingDTO bd =new BuildingDTO();

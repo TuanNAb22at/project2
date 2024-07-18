@@ -16,7 +16,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 	 static final String USER = "root";
 	 static final String PASS = "12345";
 	@Override
-	public ArrayList<BuildingEntity> findAll(String name) {
+	public ArrayList<BuildingEntity> findAll(String name,String district) {
 		String sql="SELECT * FROM estateadvance.building";
 		ArrayList<BuildingEntity> arr =new ArrayList<>();
 		try(Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);

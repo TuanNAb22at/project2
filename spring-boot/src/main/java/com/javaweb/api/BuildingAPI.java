@@ -12,14 +12,15 @@ import com.javaweb.model.BuildingDTO;
 import com.javaweb.service.BuildingService;
 
 
-
 @RestController
 public class BuildingAPI {
-	@Autowired
-	@DeleteMapping(value="/api/building/{id}/{name}")
-	public void deleteBuilding(@PathVariable Integer id,
-							  @PathVariable String name) {
-		System.out.println("da xoa"+id+" "+name);
+	 @Autowired
+	 private BuildingService buildingService;
+	@GetMapping(value="/api/building")
+	public ArrayList<BuildingDTO> getBuilding(@RequestParam(value="name",required=false) String name,
+												@RequestParam(value="district",required=false) String district) {
+		ArrayList<BuildingDTO> result =buildingService.findAll(name,district);
+		return result;
 	}
 	
 }
