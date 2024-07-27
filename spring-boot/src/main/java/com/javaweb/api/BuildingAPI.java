@@ -34,6 +34,10 @@ import com.mysql.cj.xdevapi.Statement;
 public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
-	
+	public ArrayList<BuildingDTO> getBuilding(@RequestParam Map<String, Object> params,
+											  @RequestParam(name="type",required=false) ArrayList<String> type){
+		ArrayList<BuildingDTO> result=buildingService.findAll(params,type);
+		return result;
+	}
 	
 }

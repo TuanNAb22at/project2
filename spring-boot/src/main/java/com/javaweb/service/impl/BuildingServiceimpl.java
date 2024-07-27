@@ -12,6 +12,10 @@ import com.javaweb.repository.entyti.BuildingEntity;
 import com.javaweb.service.BuildingService;
 @Service
 public class BuildingServiceimpl implements BuildingService {
-	
-
+	@Autowired
+	private BuildingRepository buildingRepository;
+	@Override
+	public ArrayList<BuildingDTO> findAll(Map<String, Object> params,ArrayList<String> type){
+		return null;
+	}
 }
