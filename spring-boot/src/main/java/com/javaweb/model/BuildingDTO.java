@@ -1,33 +1,59 @@
 package com.javaweb.model;
 
 public class BuildingDTO {
-	private String name;
-	private Integer numberOfbasement;
-	private String ward;
-	private String address;
-	public String getName() {
-		return name;
+	private String tenSanpham,diaChi,tenQuanLy,soDienThoai;
+	private int soTangHam,giaThue,dtSan;
+	private float phiMG;
+	public String getTenSanpham() {
+		return tenSanpham;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public void setTenSanpham(String tenSanpham) {
+		this.tenSanpham = tenSanpham;
 	}
-	public Integer getNumberOfbasement() {
-		return numberOfbasement;
+	public String getDiaChi() {
+		return diaChi;
 	}
-	public void setNumberOfbasement(Integer numberOfbasement) {
-		this.numberOfbasement = numberOfbasement;
+	public void setDiaChi(String diaChi) {
+		this.diaChi = diaChi;
 	}
-	public String getWard() {
-		return ward;
+	public String getTenQuanLy() {
+		return tenQuanLy;
 	}
-	public void setWard(String ward) {
-		this.ward = ward;
+	public void setTenQuanLy(String tenQuanLy) {
+		this.tenQuanLy = tenQuanLy;
 	}
-	public String getAddress() {
-		return address;
+	public String getSoDienThoai() {
+		return soDienThoai;
 	}
-	public void setAddress(String address) {
-		this.address = address;
+	public void setSoDienThoai(String soDienThoai) {
+		this.soDienThoai = soDienThoai;
 	}
+	
+	public int getDtSan() {
+		return dtSan;
+	}
+	public void setDtSan(int dtSan) {
+		this.dtSan = dtSan;
+	}
+	public int getSoTangHam() {
+		return soTangHam;
+	}
+	public void setSoTangHam(int soTangHam) {
+		this.soTangHam = soTangHam;
+	}
+	public int getGiaThue() {
+		return giaThue;
+	}
+	public void setGiaThue(int giaThue) {
+		this.giaThue = giaThue;
+	}
+	public float getPhiMG() {
+		return phiMG;
+	}
+	public void setPhiMG(float phiMG) {
+		this.phiMG = phiMG;
+	}
+	
+	
 	
 }

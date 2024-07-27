@@ -1,6 +1,7 @@
 package com.javaweb.service.impl;
 
 import java.util.ArrayList;
+import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,14 +15,18 @@ public class BuildingServiceimpl implements BuildingService {
 	@Autowired
 	private BuildingRepository buildingRepository;
 	@Override
-	public ArrayList<BuildingDTO> findAll(String name,String district) {
-		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(name,district);
+	public ArrayList<BuildingDTO> findAll(Map<String, Object> params,ArrayList<String> type) {
+		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(params,type);
 		ArrayList<BuildingDTO> result = new ArrayList<>();
 		for(BuildingEntity item:buildingentities) {
 			BuildingDTO bd =new BuildingDTO();
-			bd.setName(item.getName());
-			bd.setNumberOfbasement(item.getNumberOfbasement());
-			bd.setAddress(item.getStreet()+" , "+item.getWard());
+			bd.setTenSanpham(item.getName());
+			bd.setDiaChi(item.getStreet()+","+item.getDistrict());
+			bd.setSoTangHam(item.getNumberofbasement());
+			bd.setTenQuanLy(item.getManagername());
+			bd.setSoDienThoai(item.getManagerphone());
+			bd.setGiaThue(item.getRentprice());
+			bd.setDtSan(item.getFloorarea());
 			result.add(bd);
 		}
 		return result;
