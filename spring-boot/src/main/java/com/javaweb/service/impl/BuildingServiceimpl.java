@@ -16,6 +16,20 @@ public class BuildingServiceimpl implements BuildingService {
 	private BuildingRepository buildingRepository;
 	@Override
 	public ArrayList<BuildingDTO> findAll(Map<String, Object> params,ArrayList<String> type){
-		return null;
+		ArrayList<BuildingEntity> buildingEntity = buildingRepository.findAll(params, type);
+		ArrayList<BuildingDTO> result = new ArrayList<>();
+		for(BuildingEntity item:buildingEntity) {
+			BuildingDTO bd =new BuildingDTO();
+			bd.setTenSanpham(item.getName());
+			bd.setDiaChi(item.getStreet()+","+item.getDistrict());
+			bd.setSoTangHam(item.getNumberofbasement());
+			bd.setTenQuanLy(item.getManagername());
+			bd.setSoDienThoai(item.getManagerphone());
+			bd.setGiaThue(item.getRentprice());
+			bd.setDtSan(item.getFloorarea());
+			result.add(bd);
+		}
+		
+		return result;
 	}
 }
