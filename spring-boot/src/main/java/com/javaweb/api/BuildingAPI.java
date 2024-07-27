@@ -41,7 +41,6 @@ public class BuildingAPI {
 		return result;
 	}
 	
-	
 	@DeleteMapping(value="/api/building/{id}/{name}")
 	public void deleteBuilding(@PathVariable Integer id,
 							  @PathVariable String name) {
