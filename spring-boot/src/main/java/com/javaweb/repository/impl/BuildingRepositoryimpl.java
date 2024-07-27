@@ -1,5 +1,4 @@
 package com.javaweb.repository.impl;
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
@@ -8,7 +7,6 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
-
 import org.springframework.stereotype.Repository;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entyti.BuildingEntity;
@@ -26,7 +24,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		 }
 		 String rentAreaTo = (String)params.get("areaTo");
 		 String rentAreaFrom = (String)params.get("areaFrom");
-		 if(StringUtil.checkString(rentAreaTo) == true||StringUtil.checkString(rentAreaFrom) == true) {
+		 if(StringUtil.checkString(rentAreaTo) == true || StringUtil.checkString(rentAreaFrom) == true) {
 			 sql.append(" INNER JOIN rentarea on b.id=rentarea.buildingid ");
 		 }
 	 }
