@@ -10,13 +10,11 @@ import java.util.Map;
 import org.springframework.stereotype.Repository;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entyti.BuildingEntity;
-import com.javaweb.utils.NumberUntil;
+import com.javaweb.utils.ConnectionJDBCUtil;
+import com.javaweb.utils.NumberUtil;
 import com.javaweb.utils.StringUtil;
 @Repository
 public class BuildingRepositoryimpl implements BuildingRepository {
-	 static final String DB_URL = "jdbc:mysql://localhost:3306/estateadvance";
-	 static final String USER = "root";
-	 static final String PASS = "12345";
 	 public static void joinTable(Map<String, Object> params,ArrayList<String> type,StringBuilder sql) {
 		 String staffID = (String)params.get("staffID");
 		 if(StringUtil.checkString(staffID)) {
@@ -34,7 +32,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 			 if(!it.getKey().equals("staffId") && !it.getKey().equals("type") && !it.getKey().startsWith("area") && !it.getKey().startsWith("rent")) {
 				 String value = it.getValue().toString();
 				 if(StringUtil.checkString(value)) {
-					 if(NumberUntil.isNumber(value)) {
+					 if(NumberUtil.isNumber(value)) {
 						 where.append(" AND b." + it.getKey() + " = "+ value );
 					 }
 					 else {
@@ -92,7 +90,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		 sql.append(where);
 		 System.out.println(sql);
 		 ArrayList<BuildingEntity> result =new ArrayList<>();
-		 try(Connection conn=DriverManager.getConnection(DB_URL,USER,PASS);
+		 try(Connection conn=ConnectionJDBCUtil.getConnection();
 					java.sql.Statement stmt=conn.createStatement();
 					ResultSet rs=stmt.executeQuery(sql.toString());
 				){
