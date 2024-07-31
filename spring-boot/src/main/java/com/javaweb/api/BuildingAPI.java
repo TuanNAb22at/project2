@@ -32,19 +32,19 @@ import com.mysql.cj.xdevapi.Statement;
 @RestController
 
 public class BuildingAPI {
-	 @Autowired
-	 private BuildingService buildingService;
-	@GetMapping(value="/api/building")
+	@Autowired
+	private BuildingService buildingService;
+
+	@GetMapping(value = "/api/building")
 	public ArrayList<BuildingDTO> getBuilding(@RequestParam Map<String, Object> params,
-		   @RequestParam(value="type",required =false) ArrayList<String> type) 	{
-		ArrayList<BuildingDTO> result =buildingService.findAll(params,type);
+			@RequestParam(value = "type", required = false) ArrayList<String> type) {
+		ArrayList<BuildingDTO> result = buildingService.findAll(params, type);
 		return result;
 	}
-	
-	@DeleteMapping(value="/api/building/{id}/{name}")
-	public void deleteBuilding(@PathVariable Integer id,
-							  @PathVariable String name) {
-		System.out.println("da xoa"+id+" "+name);
+
+	@DeleteMapping(value = "/api/building/{id}/{name}")
+	public void deleteBuilding(@PathVariable Integer id, @PathVariable String name) {
+		System.out.println("da xoa" + id + " " + name);
 	}
-	
+
 }

@@ -1,11 +1,23 @@
 package com.javaweb.model;
 
 public class BuildingDTO {
-	private String tenSanpham,diaChi,tenQuanLy,soDienThoai;
-	private int soTangHam,giaThue,dtSan;
+	private String tenSanpham,diaChi,tenQuanLy,soDienThoai,name;
+	private int soTangHam,giaThue,dtSan,numberofbasement;
 	private float phiMG;
 	public String getTenSanpham() {
 		return tenSanpham;
+	}
+	public int getNumberofbasement() {
+		return numberofbasement;
+	}
+	public void setNumberofbasement(int numberofbasement) {
+		this.numberofbasement = numberofbasement;
+	}
+	public String getName() {
+		return name;
+	}
+	public void setName(String name) {
+		this.name = name;
 	}
 	public void setTenSanpham(String tenSanpham) {
 		this.tenSanpham = tenSanpham;
