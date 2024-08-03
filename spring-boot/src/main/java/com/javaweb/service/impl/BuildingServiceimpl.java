@@ -6,7 +6,9 @@ import java.util.Map;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.javaweb.builder.BuildingSearchBuider;
 import com.javaweb.converter.BuildingDTOConverter;
+import com.javaweb.converter.BuildingSearchBuilderConverter;
 import com.javaweb.model.BuildingDTO;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entyti.BuildingEntity;
@@ -17,9 +19,12 @@ public class BuildingServiceimpl implements BuildingService {
 	private BuildingRepository buildingRepository;
 	@Autowired
 	private  BuildingDTOConverter buildingDTOConverter;
+	@Autowired
+	private BuildingSearchBuilderConverter buildingSearchBuilderConverter;
 	@Override
 	public ArrayList<BuildingDTO> findAll(Map<String, Object> params,ArrayList<String> type) {
-		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(params,type);
+		BuildingSearchBuider buildingSearchBuider=BuildingSearchBuilderConverter.toBuildingSearchBuider(params, type);
+		ArrayList<BuildingEntity> buildingentities =buildingRepository.findAll(buildingSearchBuider);
 		ArrayList<BuildingDTO> result = new ArrayList<>();
 		for(BuildingEntity item:buildingentities) {
 			BuildingDTO bd = buildingDTOConverter.toBuildingDTO(item);

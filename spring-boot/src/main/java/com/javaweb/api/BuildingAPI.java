@@ -22,6 +22,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.javaweb.builder.BuildingSearchBuider;
 import com.javaweb.customexception.FieldRequiredException;
 import com.javaweb.model.BuildingDTO;
 import com.javaweb.model.ErrotResponseDTO;
@@ -34,11 +35,10 @@ import com.mysql.cj.xdevapi.Statement;
 public class BuildingAPI {
 	@Autowired
 	private BuildingService buildingService;
-
 	@GetMapping(value = "/api/building")
 	public ArrayList<BuildingDTO> getBuilding(@RequestParam Map<String, Object> params,
 			@RequestParam(value = "type", required = false) ArrayList<String> type) {
-		ArrayList<BuildingDTO> result = buildingService.findAll(params, type);
+		ArrayList<BuildingDTO> result = buildingService.findAll(params,type);
 		return result;
 	}
 
