@@ -1,17 +1,13 @@
 package com.javaweb.model;
 
 public class BuildingDTO {
-	private String tenSanpham,diaChi,tenQuanLy,soDienThoai,name;
-	private int soTangHam,giaThue,dtSan,numberofbasement;
-	private float phiMG;
-	public String getTenSanpham() {
-		return tenSanpham;
+	private String id,name,street,ward,district,managername,managerphone;
+	private int numberofbasement,floorarea,rentprice;
+	public String getId() {
+		return id;
 	}
-	public int getNumberofbasement() {
-		return numberofbasement;
-	}
-	public void setNumberofbasement(int numberofbasement) {
-		this.numberofbasement = numberofbasement;
+	public void setId(String id) {
+		this.id = id;
 	}
 	public String getName() {
 		return name;
@@ -19,52 +15,55 @@ public class BuildingDTO {
 	public void setName(String name) {
 		this.name = name;
 	}
-	public void setTenSanpham(String tenSanpham) {
-		this.tenSanpham = tenSanpham;
+	public String getStreet() {
+		return street;
 	}
-	public String getDiaChi() {
-		return diaChi;
+	public void setStreet(String street) {
+		this.street = street;
 	}
-	public void setDiaChi(String diaChi) {
-		this.diaChi = diaChi;
+	public String getWard() {
+		return ward;
 	}
-	public String getTenQuanLy() {
-		return tenQuanLy;
+	public void setWard(String ward) {
+		this.ward = ward;
 	}
-	public void setTenQuanLy(String tenQuanLy) {
-		this.tenQuanLy = tenQuanLy;
+	public String getDistrict() {
+		return district;
 	}
-	public String getSoDienThoai() {
-		return soDienThoai;
+	public void setDistrict(String district) {
+		this.district = district;
 	}
-	public void setSoDienThoai(String soDienThoai) {
-		this.soDienThoai = soDienThoai;
+	public String getManagername() {
+		return managername;
+	}
+	public void setManagername(String managername) {
+		this.managername = managername;
+	}
+	public String getManagerphone() {
+		return managerphone;
+	}
+	public void setManagerphone(String managerphone) {
+		this.managerphone = managerphone;
+	}
+	public int getNumberofbasement() {
+		return numberofbasement;
+	}
+	public void setNumberofbasement(int numberofbasement) {
+		this.numberofbasement = numberofbasement;
+	}
+	public int getFloorarea() {
+		return floorarea;
+	}
+	public void setFloorarea(int floorarea) {
+		this.floorarea = floorarea;
+	}
+	public int getRentprice() {
+		return rentprice;
+	}
+	public void setRentprice(int rentprice) {
+		this.rentprice = rentprice;
 	}
 	
-	public int getDtSan() {
-		return dtSan;
-	}
-	public void setDtSan(int dtSan) {
-		this.dtSan = dtSan;
-	}
-	public int getSoTangHam() {
-		return soTangHam;
-	}
-	public void setSoTangHam(int soTangHam) {
-		this.soTangHam = soTangHam;
-	}
-	public int getGiaThue() {
-		return giaThue;
-	}
-	public void setGiaThue(int giaThue) {
-		this.giaThue = giaThue;
-	}
-	public float getPhiMG() {
-		return phiMG;
-	}
-	public void setPhiMG(float phiMG) {
-		this.phiMG = phiMG;
-	}
 	
 	
 	
