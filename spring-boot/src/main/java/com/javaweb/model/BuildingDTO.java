@@ -3,6 +3,7 @@ package com.javaweb.model;
 public class BuildingDTO {
 	private String id,name,street,ward,district,managername,managerphone;
 	private int numberofbasement,floorarea,rentprice;
+	
 	public String getId() {
 		return id;
 	}

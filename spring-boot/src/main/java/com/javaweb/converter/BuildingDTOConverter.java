@@ -13,13 +13,6 @@ public class BuildingDTOConverter {
 	private ModelMapper modelMapper;
 	public BuildingDTO toBuildingDTO(BuildingEntity item) {
 		BuildingDTO bd = modelMapper.map(item, BuildingDTO.class);
-//		bd.setTenSanpham(item.getName());
-//		bd.setDiaChi(item.getStreet()+","+item.getDistrict());
-//		bd.setSoTangHam(item.getNumberofbasement());
-//		bd.setTenQuanLy(item.getManagername());
-//		bd.setSoDienThoai(item.getManagerphone());
-//		bd.setGiaThue(item.getRentprice());
-//		bd.setDtSan(item.getFloorarea());
 		return bd;
 	}
 }
