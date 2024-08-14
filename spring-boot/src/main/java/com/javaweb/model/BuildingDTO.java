@@ -1,15 +1,9 @@
 package com.javaweb.model;
 
 public class BuildingDTO {
-	private String id,name,street,ward,district,managername,managerphone;
+	private String name,street,ward,district,managername,managerphone;
 	private int numberofbasement,floorarea,rentprice;
 	
-	public String getId() {
-		return id;
-	}
-	public void setId(String id) {
-		this.id = id;
-	}
 	public String getName() {
 		return name;
 	}

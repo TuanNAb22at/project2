@@ -65,10 +65,10 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		Integer rentAreaTo = buildingSearchBuider.getAreaTo();
 		Integer rentAreaFrom = buildingSearchBuider.getAreaFrom();
 		if (rentAreaTo != null || rentAreaFrom != null) {
-			if (rentAreaTo != null) {
+			if (rentAreaFrom != null) {
 				where.append(" AND rentarea.value  >= " + rentAreaFrom);
 			}
-			if (rentAreaFrom != null) {
+			if (rentAreaTo != null) {
 				where.append(" AND rentarea.value  <= " + rentAreaTo);
 			}
 		}
@@ -102,7 +102,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		querySpecial(buildingSearchBuilder, where);
 		where.append(" group by b.id");
 		sql.append(where);
-		System.out.print(sql.toString());
+		System.out.println(sql.toString());
 		ArrayList<BuildingEntity> result = new ArrayList<>();
 		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
 				java.sql.Statement stmt = conn.createStatement();
