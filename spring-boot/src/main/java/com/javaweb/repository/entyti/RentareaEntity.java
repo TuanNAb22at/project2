@@ -1,0 +1,63 @@
+package com.javaweb.repository.entyti;
+
+import java.util.ArrayList;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.Collection;
+import javax.persistence.*;
+@Entity
+@Table(name = "rentarea")
+public class RentareaEntity {
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Integer id;
+	@Column(name = "value")
+	private Integer vaLue;
+	@Column(name = "buildingid")
+	private Integer Buildingid;
+
+	public Integer getId() {
+		return id;
+	}
+
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public Integer getVaLue() {
+		return vaLue;
+	}
+
+	public void setVaLue(Integer vaLue) {
+		this.vaLue = vaLue;
+	}
+
+	public Integer getBuildingid() {
+		return Buildingid;
+	}
+
+	public void setBuildingid(Integer buildingid) {
+		Buildingid = buildingid;
+	}
+
+//	@ManyToOne
+//	@JoinColumn(name = "buildingid")
+//	private BuildingEntity building;
+//
+//	public BuildingEntity getBuilding() {
+//		return building;
+//	}
+//
+//	public void setBuilding(BuildingEntity building) {
+//		this.building = building;
+//	}
+
+}

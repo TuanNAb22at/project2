@@ -1,16 +1,89 @@
 package com.javaweb.repository.entyti;
 
+import java.util.ArrayList;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.FetchType;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
+import java.util.Collection;
+import javax.persistence.*;
+@Entity
+@Table(name = "building")
 public class BuildingEntity {
-	private String name,managername,managerphone,type;
-	private int floorarea,numberofbasement,rentprice,staffid;
-	private String district;
-	private String ward;
+	@Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Integer id;
+	@Column(name = "name")
+	private String name;
+	@Column(name = "street")
 	private String street;
+	@Column(name = "ward")
+	private String ward;
+	@Column(name = "district")
+	private String district;
+	@Column(name = "numberofbasement")
+	private Integer numberofbasement;
+	@Column(name = "floorarea")
+	private Integer floorarea;
+	@Column(name = "staffid")
+	private Integer staffid;
+	@Column(name = "rentprice")
+	private Integer rentprice;
+	@Column(name = "managername")
+	private String managername;
+	@Column(name = "managerphone")
+	private String managerphone;
+	@Column(name = "type")
+	private String type;
 	public String getName() {
 		return name;
 	}
-	public void setName(String name) {
-		this.name = name;
+	public String getStreet() {
+		return street;
+	}
+	public void setStreet(String street) {
+		this.street = street;
+	}
+	public String getWard() {
+		return ward;
+	}
+	public void setWard(String ward) {
+		this.ward = ward;
+	}
+	public String getDistrict() {
+		return district;
+	}
+	public void setDistrict(String district) {
+		this.district = district;
+	}
+	public Integer getNumberofbasement() {
+		return numberofbasement;
+	}
+	public void setNumberofbasement(Integer numberofbasement) {
+		this.numberofbasement = numberofbasement;
+	}
+	public Integer getFloorarea() {
+		return floorarea;
+	}
+	public void setFloorarea(Integer floorarea) {
+		this.floorarea = floorarea;
+	}
+	public Integer getStaffid() {
+		return staffid;
+	}
+	public void setStaffid(Integer staffid) {
+		this.staffid = staffid;
+	}
+	public Integer getRentprice() {
+		return rentprice;
+	}
+	public void setRentprice(Integer rentprice) {
+		this.rentprice = rentprice;
 	}
 	public String getManagername() {
 		return managername;
@@ -30,47 +103,17 @@ public class BuildingEntity {
 	public void setType(String type) {
 		this.type = type;
 	}
-	public int getFloorarea() {
-		return floorarea;
-	}
-	public void setFloorarea(int floorarea) {
-		this.floorarea = floorarea;
-	}
-	public int getNumberofbasement() {
-		return numberofbasement;
-	}
-	public void setNumberofbasement(int numberofbasement) {
-		this.numberofbasement = numberofbasement;
-	}
-	public int getRentprice() {
-		return rentprice;
-	}
-	public void setRentprice(int rentprice) {
-		this.rentprice = rentprice;
-	}
-	public int getStaffid() {
-		return staffid;
-	}
-	public void setStaffid(int staffid) {
-		this.staffid = staffid;
-	}
-	public String getDistrict() {
-		return district;
-	}
-	public void setDistrict(String district) {
-		this.district = district;
-	}
-	public String getWard() {
-		return ward;
-	}
-	public void setWard(String ward) {
-		this.ward = ward;
-	}
-	public String getStreet() {
-		return street;
-	}
-	public void setStreet(String street) {
-		this.street = street;
+	public void setName(String name) {
+		this.name = name;
 	}
 	
+//	@OneToMany(mappedBy="building",fetch=FetchType.LAZY)
+//	private ArrayList<RentareaEntity> items = new ArrayList<>();
+//	
+//	public ArrayList<RentareaEntity> getItems() {
+//		return items;
+//	}
+//	public void setItems(ArrayList<RentareaEntity> items) {
+//		this.items = items;
+//	}
 }
