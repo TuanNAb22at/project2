@@ -1,15 +1,10 @@
 package com.javaweb.repository.entyti;
 
 import java.util.ArrayList;
+import java.util.List;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
+import javax.persistence.*;
+
 
 @Entity
 @Table(name = "user")
@@ -58,15 +53,11 @@ public class UserEntity {
 	public void setFullName(String fullName) {
 		this.fullName = fullName;
 	}
-//	@OneToMany(mappedBy="userEntity",fetch=FetchType.LAZY)
-//	private ArrayList<UserRoleEntity> userRoleEntities = new ArrayList<>();
-//
-//	public ArrayList<UserRoleEntity> getUserRoleEntities() {
-//		return userRoleEntities;
-//	}
-//
-//	public void setUserRoleEntities(ArrayList<UserRoleEntity> userRoleEntities) {
-//		this.userRoleEntities = userRoleEntities;
-//	}
-//	
+	@ManyToMany(fetch=FetchType.LAZY)
+	@JoinTable(name="user_role",
+		joinColumns=@JoinColumn(name="user_id",nullable=false),
+		inverseJoinColumns=@JoinColumn(name="role_id",nullable=false))
+	private List<RoleEntity> roles = new ArrayList<>();
+	
+	
 }

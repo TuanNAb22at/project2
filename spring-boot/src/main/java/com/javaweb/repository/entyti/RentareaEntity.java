@@ -21,9 +21,6 @@ public class RentareaEntity {
 	private Integer id;
 	@Column(name = "value")
 	private Integer vaLue;
-	@Column(name = "buildingid")
-	private Integer Buildingid;
-
 	public Integer getId() {
 		return id;
 	}
@@ -40,24 +37,16 @@ public class RentareaEntity {
 		this.vaLue = vaLue;
 	}
 
-	public Integer getBuildingid() {
-		return Buildingid;
+	@ManyToOne
+	@JoinColumn(name = "buildingid")
+	private BuildingEntity building;
+
+	public BuildingEntity getBuilding() {
+		return building;
 	}
 
-	public void setBuildingid(Integer buildingid) {
-		Buildingid = buildingid;
+	public void setBuilding(BuildingEntity building) {
+		this.building = building;
 	}
-
-//	@ManyToOne
-//	@JoinColumn(name = "buildingid")
-//	private BuildingEntity building;
-//
-//	public BuildingEntity getBuilding() {
-//		return building;
-//	}
-//
-//	public void setBuilding(BuildingEntity building) {
-//		this.building = building;
-//	}
 
 }

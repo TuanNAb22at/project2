@@ -1,17 +1,9 @@
 package com.javaweb.repository.entyti;
 
 import java.util.ArrayList;
-
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.FetchType;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.OneToMany;
-import javax.persistence.Table;
-import java.util.Collection;
 import javax.persistence.*;
+import java.util.List;
+
 @Entity
 @Table(name = "building")
 public class BuildingEntity {
@@ -107,13 +99,14 @@ public class BuildingEntity {
 		this.name = name;
 	}
 	
-//	@OneToMany(mappedBy="building",fetch=FetchType.LAZY)
-//	private ArrayList<RentareaEntity> items = new ArrayList<>();
-//	
-//	public ArrayList<RentareaEntity> getItems() {
-//		return items;
-//	}
-//	public void setItems(ArrayList<RentareaEntity> items) {
-//		this.items = items;
-//	}
+	@OneToMany(mappedBy="building", fetch=FetchType.LAZY)
+	private List<RentareaEntity> items = new ArrayList<>();
+
+	
+	public List<RentareaEntity> getItems() {
+		return items;
+	}
+	public void setItems(List<RentareaEntity> items) {
+		this.items = items;
+	}
 }

@@ -1,6 +1,7 @@
 package com.javaweb.repository.entyti;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -8,6 +9,7 @@ import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -47,15 +49,7 @@ public class RoleEntity {
 	public void setCode(String code) {
 		this.code = code;
 	}
-//	@OneToMany(mappedBy="roleEntity",fetch=FetchType.LAZY)
-//	private ArrayList<UserRoleEntity> userRoleEntities = new ArrayList<>();
-//
-//	public ArrayList<UserRoleEntity> getUserRoleEntities() {
-//		return userRoleEntities;
-//	}
-//
-//	public void setUserRoleEntities(ArrayList<UserRoleEntity> userRoleEntities) {
-//		this.userRoleEntities = userRoleEntities;
-//	}
+	@ManyToMany(mappedBy="roles",fetch=FetchType.LAZY)
+	private List<UserEntity> users = new ArrayList<>();
 	
 }

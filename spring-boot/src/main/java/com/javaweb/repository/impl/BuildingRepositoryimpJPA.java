@@ -22,7 +22,6 @@ public class BuildingRepositoryimpJPA implements BuildingRepository {
 		String sql="select * FROM building b where b.name like '%Giao%' ";
 		/*Query query = entityManager.createQuery(sql,BuildingEntity.class);
 		return (ArrayList<BuildingEntity>) query.getResultList(); JPQL*/
-		
 		//SQL Native
 		Query query = entityManager.createNativeQuery(sql,BuildingEntity.class);
 		return (ArrayList<BuildingEntity>) query.getResultList();
