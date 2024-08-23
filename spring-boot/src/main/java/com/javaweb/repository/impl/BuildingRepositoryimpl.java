@@ -8,6 +8,12 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
+
+import javax.persistence.EntityManager;
+import javax.persistence.PersistenceContext;
+import javax.persistence.Query;
+
+import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Repository;
 
 import com.javaweb.builder.BuildingSearchBuilder;
@@ -17,11 +23,10 @@ import com.javaweb.utils.NumberUtil;
 import com.javaweb.utils.StringUtil;
 
 @Repository
+@Primary
 public class BuildingRepositoryimpl implements BuildingRepository {
-	static final String DB_URL = "jdbc:mysql://localhost:3306/estateadvance";
-	static final String USER = "root";
-	static final String PASS = "12345";
-
+	@PersistenceContext
+	private EntityManager entityManager;
 	public static void joinTable(BuildingSearchBuilder buildingSearchBuilder, StringBuilder sql) {
 		Integer staffid = buildingSearchBuilder.getStaffId();
 		if (staffid != null) {
@@ -103,28 +108,7 @@ public class BuildingRepositoryimpl implements BuildingRepository {
 		where.append(" group by b.id");
 		sql.append(where);
 		System.out.println(sql.toString());
-		ArrayList<BuildingEntity> result = new ArrayList<>();
-		try (Connection conn = DriverManager.getConnection(DB_URL, USER, PASS);
-				java.sql.Statement stmt = conn.createStatement();
-				ResultSet rs = stmt.executeQuery(sql.toString());) {
-			while (rs.next()) {
-				BuildingEntity buildingEntity = new BuildingEntity();
-				buildingEntity.setName(rs.getString("b.name"));
-				buildingEntity.setWard(rs.getString("b.ward"));
-				buildingEntity.setDistrict(rs.getString("b.district"));
-				buildingEntity.setStreet(rs.getString("b.street"));
-				buildingEntity.setFloorarea(rs.getInt("b.floorarea"));
-				buildingEntity.setRentprice(rs.getInt("b.rentprice"));
-				buildingEntity.setManagername(rs.getString("b.managername"));
-				buildingEntity.setManagerphone(rs.getString("b.managerphone"));
-				buildingEntity.setNumberofbasement(rs.getInt("b.numberofbasement"));
-				result.add(buildingEntity);
-			}
-
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.print("faild");
-		}
-		return result;
+		Query query = entityManager.createNativeQuery(sql.toString(),BuildingEntity.class);
+		return (ArrayList<BuildingEntity>) query.getResultList();
 	}
 }

@@ -13,7 +13,6 @@ import com.javaweb.builder.BuildingSearchBuilder;
 import com.javaweb.repository.BuildingRepository;
 import com.javaweb.repository.entyti.BuildingEntity;
 @Repository
-@Primary
 public class BuildingRepositoryimpJPA implements BuildingRepository {
 	@PersistenceContext
 	private EntityManager entityManager;

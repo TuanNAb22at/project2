@@ -41,7 +41,6 @@ public class BuildingAPI {
 		ArrayList<BuildingDTO> result = buildingService.findAll(params, type);
 		return result;
 	}
-
 	@DeleteMapping(value = "/api/building/{id}/{name}")
 	public void deleteBuilding(@PathVariable Integer id, @PathVariable String name) {
 		System.out.println("da xoa" + id + " " + name);
